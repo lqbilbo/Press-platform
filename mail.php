@@ -26,8 +26,10 @@ try {
 	$to = "gelato4u@163.com";
 	$mail->AddAddress($to);
 	$mail->Subject  = $_POST['mailsubject'];//"发送邮件测试标题";
-	$mail->Body = $_POST['mailbody'];//"<h1>发送邮件演示</h1>这是木偶漫画工作室（<font color=red>$mail->FromName</font>），感谢您的投稿";
-	$mail->AltBody    = "请使用HTML兼容的邮件客户端"; //当邮件不支持html时备用显示，可以省略
+//	$mail->Body = "<h1>发送邮件演示</h1>这是木偶漫画工作室（<font color=red>$mail->FromName</font>），感谢您的投稿";
+    $inlineBody = $_POST['mailbody'];
+    $mail->Body = "<pre>$inlineBody</pre>";
+    $mail->AltBody    = "请使用HTML兼容的邮件客户端"; //当邮件不支持html时备用显示，可以省略
 	$mail->WordWrap   = 80; // 设置每行字符串的长度
 	//$mail->AddAttachment("f:/test.png");  //可以添加附件
 	$mail->IsHTML(true); 
