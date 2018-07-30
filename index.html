@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<title>投稿平台</title>
+</head>
+<body>
+<!--<form name="form1" method="post" action="mail.php">
+<table>
+    <tr>
+        <td>
+            <textarea name="mailbody" cols="35%" rows="15%" placeholder="请输入投稿内容..."></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="mailsubject" size="35%" required placeholder="请输入笔名与联系方式...">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" name="Submit" value="投  稿">
+        </td>
+    </tr>
+</table>
+</form>-->
+<form name="form1" method="post" action="mail.php">
+	<div class="form-group">
+		<textarea class="form-control" name="mailbody" rows="15" cols="35" required placeholder="请输入投稿内容..."></textarea>
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-control" name="mailsubject" required placeholder="请输入笔名与联系方式...">
+	</div>
+	<button type="submit" class="btn btn-default">投  稿</button>
+</form>
+</body>
+</html>
