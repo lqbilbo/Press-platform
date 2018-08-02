@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link href="css/prettify.css" rel="stylesheet">
 	<style type="text/css">
 		.btn-group {
 			width: 50%;
@@ -15,12 +16,71 @@
 	</style>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.hotkeys.js"></script>
+	<script src="js/prettify.js"></script>
+	<script src="js/bootstrap-wysiwyg.js"></script>
 	<title>投稿平台</title>
 </head>
 <body>
 <form name="form1" method="post" action="mail.php">
 	<div class="form-group">
-		<textarea class="form-control" name="mailbody" rows="15" cols="35" required placeholder="请输入投稿内容..."></textarea>
+		<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+			<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				</ul>
+			</div>
+			<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+					<li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+					<li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+				</ul>
+			</div>
+			<div class="btn-group">
+				<a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+				<a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+				<a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+				<a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+			</div>
+			<div class="btn-group">
+				<a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+				<a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+				<a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+				<a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+			</div>
+			<div class="btn-group">
+				<a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+				<a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+				<a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+				<a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+			</div>
+			<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+				<div class="dropdown-menu input-append">
+					<input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+					<button class="btn" type="button">Add</button>
+				</div>
+				<a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+
+			</div>
+
+			<div class="btn-group">
+				<a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
+				<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+			</div>
+			<div class="btn-group">
+				<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+				<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+			</div>
+			<input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+		</div>
+		<div id="editor">
+			Go ahead&hellip;
+		</div>
+		<!--<textarea class="form-control" name="mailbody" rows="15" cols="35" required placeholder="请输入投稿内容..."></textarea>-->
 	</div>
 	<div class="form-group">
 		<input type="text" class="form-control" name="mailsubject" required placeholder="请输入笔名与联系方式...">
